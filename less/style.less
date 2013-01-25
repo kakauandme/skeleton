@@ -7,21 +7,12 @@
 @import 'typography.less';
 
 
-
-
-
-/* ============================== */
-/* ! Layout for desktop version   */
-/* ============================== */
-
 	body {
 		
 	}
 	
 
-/* ============================= */
-/* ! Layout for mobile version   */
-/* ============================= */
+
 
 @media handheld, only screen and (max-width: 767px) {
 
@@ -31,11 +22,15 @@
 
 }
 
-/* ============================= */
-/* ! Layout for mobile version   */
-/* ============================= */
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+@media 
+only screen and (-webkit-min-device-pixel-ratio: 1.25),
+only screen and ( min--moz-device-pixel-ratio: 1.25),
+only screen and ( min-device-pixel-ratio: 1.25),
+only screen and ( -o-min-device-pixel-ratio: 2/1),
+only screen and ( min-resolution: 200dpi),
+only screen and ( min-resolution: 1.25dppx) {
 
 /*	.logo {
 		background: url(logo2x.jpg) no-repeat;
