@@ -1,11 +1,6 @@
 /* Skeleton by Kirill Kliavin */
 /* The 1140px Grid V2 by Andy Taylor */
 
-
-@gutter: 20px;
-@contentwidth: 1140px;
-
-
 .container {
 padding-left: @gutter;
 padding-right: @gutter;
@@ -77,23 +72,7 @@ float: left;
 .last {
 margin-right: 0px;
 }
-
-@media only screen and (max-width: 1023px) {
-	/*move to typography */
-	body {
-	font-size: 0.8em;
-	line-height: 1.5em;
-	}
-	
-}
-
-@media handheld, only screen and (max-width: 767px) {
-	/*move to typography */
-	body {
-	font-size: 16px;
-	-webkit-text-size-adjust: none;
-	}
-	
+@media handheld, only screen and (max-width: 767px) {	
 	.row, body, .container {
 	width: 100%;
 	min-width: 0;
@@ -111,5 +90,4 @@ margin-right: 0px;
 	padding-left: @gutter;
 	padding-right: @gutter;
 	}
-
 }
