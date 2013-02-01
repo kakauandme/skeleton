@@ -535,28 +535,69 @@ table {
   src: url("../fonts/name.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
    url("../fonts/fontname.woff") format("woff"), /* Modern Browsers */
    url("../fonts/fontname.ttf") format("truetype"), /* Safari, Android, iOS */
-   url("../fonts/fontname.svg#svgfontname") format("svg");/* IE9 Compatibility Modes */
+   url("../fonts/fontname.svg#svgfontname") format("svg");
+  font-weight: normal;
+  font-style: normal;/* IE9 Compatibility Modes */
   /* Legacy iOS */
 }
 body {
   background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
-  line-height: 1;
+  font-size: 16px;
+  line-height: 1.25em;
   font-smooth: always;
   font-family: "FontName", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-a {
-  color: #0088cc;
-  text-decoration: none;
+h1 {
+  font-size: 1.8125em;
+  line-height: 0.6896551724137931em;
+  margin-top: 0;
+  margin-bottom: 0.6896551724137931em;
 }
-a:hover {
-  color: #005580;
+h2 {
+  font-size: 1.5em;
+  line-height: 0.8333333333333334em;
+  margin-top: 0;
+  margin-bottom: 0.8333333333333334em;
 }
-p {
-  margin: 0 0 10px;
+h3 {
+  font-size: 1.3125em;
+  line-height: 0.9523809523809523em;
+  margin-top: 0;
+  margin-bottom: 0.9523809523809523em;
+}
+h4 {
+  font-size: 1.1875em;
+  line-height: 1.0526315789473684em;
+  margin-top: 0;
+  margin-bottom: 1.0526315789473684em;
+}
+blockquote,
+h5,
+h6,
+iframe,
+label,
+p,
+pre,
+address,
+td,
+th,
+ul,
+ol,
+dl,
+dd,
+hr,
+table {
+  font-size: 1em;
+  line-height: 1.25em;
+  margin-top: 0;
+  margin-bottom: 1.25em;
 }
 small {
-  font-size: 85%;
+  font-size: 0.875em;
+  line-height: 1.4285714285714286em;
+  margin-top: 0;
+  margin-bottom: 1.4285714285714286em;
 }
 strong {
   font-weight: bold;
@@ -573,9 +614,9 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 10px 0;
+  text-transform: uppercase;
+  font-family: "BrandonBlack", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
-  line-height: 20px;
   text-rendering: optimizelegibility;
 }
 h1 small,
@@ -585,56 +626,18 @@ h4 small,
 h5 small,
 h6 small {
   font-weight: normal;
-  line-height: 1;
-}
-h1,
-h2,
-h3 {
-  line-height: 40px;
-}
-h1 {
-  font-size: 44px;
-}
-h2 {
-  font-size: 36px;
-}
-h3 {
-  font-size: 28px;
-}
-h4 {
-  font-size: 20px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 13.6px;
-}
-h1 small {
-  font-size: 28px;
-}
-h2 small {
-  font-size: 20px;
-}
-h3 small {
-  font-size: 16px;
-}
-h4 small {
-  font-size: 16px;
 }
 ul,
 ol {
   padding: 0;
-  margin: 0 0 10px 25px;
+  margin-left: 40px;
 }
 ul ul,
 ul ol,
 ol ol,
 ol ul {
   margin-bottom: 0;
-}
-li {
-  line-height: 20px;
+  margin-left: 20px;
 }
 ul.unstyled,
 ol.unstyled {
@@ -649,15 +652,6 @@ ol.inline {
 ul.inline > li,
 ol.inline > li {
   display: inline-block;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-dl {
-  margin-bottom: 20px;
-}
-dt,
-dd {
-  line-height: 20px;
 }
 dt {
   font-weight: bold;
@@ -665,9 +659,196 @@ dt {
 dd {
   margin-left: 10px;
 }
+blockquote {
+  padding: 0 0 0 15px;
+  margin: 0 0 20px;
+  border-left: 5px solid lightgray;
+}
+blockquote p {
+  margin-bottom: 0;
+  font-size: 1.2em;
+}
 input,
 textarea {
   font-weight: 300;
+}
+table {
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+th,
+td {
+  padding: 8px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid lightgray;
+}
+th {
+  font-weight: bold;
+}
+thead th {
+  vertical-align: bottom;
+}
+tbody + tbody {
+  border-top: 2px solid lightgray;
+}
+form {
+  margin: 0 0 20px;
+}
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 40px;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+legend small {
+  font-size: 15px;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  display: inline-block;
+  height: 20px;
+  padding: 4px 6px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  vertical-align: middle;
+}
+input,
+textarea,
+.uneditable-input {
+  width: 206px;
+}
+textarea {
+  height: auto;
+}
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  border: 1px solid  gray;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear .2s, box-shadow linear .2s;
+  -moz-transition: border linear .2s, box-shadow linear .2s;
+  -o-transition: border linear .2s, box-shadow linear .2s;
+  transition: border linear .2s, box-shadow linear .2s;
+}
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+}
+input[type="radio"],
+input[type="checkbox"] {
+  vertical-align: baseline;
+  padding-left: 20px;
+}
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+}
+select,
+input[type="file"] {
+  height: 20px;
+  /* In IE7, the height of the select element cannot be changed by height, only font-size */
+
+  *margin-top: 4px;
+  /* For IE7, add top margin to align select with labels */
+
+  line-height: 20px;
+}
+select {
+  width: 220px;
+  border: 1px solid gray;
+}
+select[multiple],
+select[size] {
+  height: auto;
+}
+a {
+  color: #0088cc;
+  text-decoration: none;
+}
+a:hover {
+  color: #005580;
+}
+img {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 /* Smaller screens */
 @media only screen and (max-width: 1023px) {

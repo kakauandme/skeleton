@@ -9,8 +9,38 @@
 	url("../fonts/fontname.woff") format("woff"), /* Modern Browsers */
 	url("../fonts/fontname.ttf")  format("truetype"), /* Safari, Android, iOS */
 	url("../fonts/fontname.svg#svgfontname") format("svg"); /* Legacy iOS */
+    font-weight: normal;
+    font-style: normal;
 
 }
+
+
+
+@factor_h1:13;
+@factor_h2:8;
+@factor_h3:5;
+@factor_h4:3;
+@factor_h5:2;
+@factor_h6:1;
+@factor_p:0;
+@factor_small:-2;
+
+.font_size (@size) {
+    font-size: 0em + (@baseFontSize + @size) / @baseFontSize;
+}
+.line_height (@size) {
+    line-height: 0em + @baseLineHeight / (@baseFontSize + @size);
+}
+.margin_top () {
+    margin-top: 0; 
+}
+.margin_bottom (@size: 0) {
+    margin-bottom: 0em + @baseLineHeight / (@baseFontSize + @size);
+}
+
+
+
+
 html {
 
 }
@@ -18,29 +48,51 @@ html {
 body{
 	background-color: @bodyBackground;
 	-webkit-font-smoothing: antialiased;
-	line-height: 1;
+	font-size: 0px + @baseFontSize;
+  .line_height (@factor_p);
 	font-smooth:always;	
 	font-family: "FontName", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-a {
-	color: @linkColor;
-	text-decoration: none;	
-	&:hover{
-		color:@linkColorHover;
-	}
+
+h1 {
+  .font_size(@factor_h1);
+  .line_height(@factor_h1);
+  margin-top: 0;  
+  .margin_bottom(@factor_h1);
+}
+h2 {
+  .font_size(@factor_h2);
+  .line_height(@factor_h2);
+  margin-top: 0;  
+  .margin_bottom(@factor_h2);
+}
+h3 {
+  .font_size(@factor_h3);
+  .line_height(@factor_h3);
+  margin-top: 0;  
+  .margin_bottom(@factor_h3);
+}
+h4 {
+  .font_size(@factor_h4);
+  .line_height(@factor_h4);
+  margin-top: 0;  
+  .margin_bottom(@factor_h4);
+}
+blockquote, h5, h6, iframe, label, p, pre, address, td, th, ul, ol, dl, dd, hr,
+table {
+  .font_size(@factor_p);
+  .line_height(@factor_p);
+  margin-top: 0;  
+  .margin_bottom(@factor_p);
+}
+small {
+  .font_size(@factor_small);
+  .line_height(@factor_small);
+  margin-top: 0;  
+  .margin_bottom(@factor_small);
 }
 
-
-p {
-  	margin: 0 0 @baseLineHeight / 2;
-}
-
-// Emphasis & misc
-// -------------------------
-
-// Ex: 14px base font * 85% = about 12px
-small   { font-size: 85%; }
 
 strong  { font-weight: bold; }
 em      { font-style: italic; }
@@ -48,33 +100,16 @@ cite    { font-style: normal; }
 
 
 h1, h2, h3, h4, h5, h6 {
-  margin: (@baseLineHeight / 2) 0;
+ 
+  text-transform: uppercase;
+  font-family: "BrandonBlack", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: @headingsFontWeight;
-  line-height: @baseLineHeight;
   text-rendering: optimizelegibility; // Fix the character spacing for headings
   small {
     font-weight: normal;
-    line-height: 1;
   }
+
 }
-
-h1,
-h2,
-h3 { line-height: @baseLineHeight * 2; }
-
-h1 { font-size: @baseFontSize * 2.75; } // ~38px
-h2 { font-size: @baseFontSize * 2.25; } // ~32px
-h3 { font-size: @baseFontSize * 1.75; } // ~24px
-h4 { font-size: @baseFontSize * 1.25; } // ~18px
-h5 { font-size: @baseFontSize; }
-h6 { font-size: @baseFontSize * 0.85; } // ~12px
-
-h1 small { font-size: @baseFontSize * 1.75; } // ~24px
-h2 small { font-size: @baseFontSize * 1.25; } // ~18px
-h3 small { font-size: @baseFontSize; }
-h4 small { font-size: @baseFontSize; }
-
-
 
 // Lists
 // --------------------------------------------------
@@ -82,18 +117,15 @@ h4 small { font-size: @baseFontSize; }
 // Unordered and Ordered lists
 ul, ol {
   padding: 0;
-  margin: 0 0 @baseLineHeight / 2 25px;
+  margin-left: 2*@gutter;
 }
 ul ul,
 ul ol,
 ol ol,
 ol ul {
   margin-bottom: 0;
+  margin-left: @gutter;
 }
-li {
-  line-height: @baseLineHeight;
-}
-
 // Remove default list styles
 ul.unstyled,
 ol.unstyled {
@@ -108,18 +140,7 @@ ol.inline {
   list-style: none;
   & > li {
     display: inline-block;
-    padding-left: 5px;
-    padding-right: 5px;
   }
-}
-
-// Description Lists
-dl {
-  margin-bottom: @baseLineHeight;
-}
-dt,
-dd {
-  line-height: @baseLineHeight;
 }
 dt {
   font-weight: bold;
@@ -128,14 +149,206 @@ dd {
   margin-left: @baseLineHeight / 2;
 }
 
+blockquote {
+  padding: 0 0 0 15px;
+  margin: 0 0 @baseLineHeight;
+  border-left: 5px solid lightgray;
+  p {
+    margin-bottom: 0;
+    font-size: 1.2em;
+  }
+}
+
 input, textarea {
 	font-weight: 300;
+}
+table {
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin-bottom: @baseLineHeight;
+}
+  th,
+  td {
+    padding: 8px;
+    line-height: @baseLineHeight;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid lightgray;
+  }
+  th {
+    font-weight: bold;
+  }
+  // Bottom align for column headings
+  thead th {
+    vertical-align: bottom;
+  }
+
+    tbody + tbody {
+    border-top: 2px solid lightgray;
+  }
+
+  // Make all forms have space below them
+form {
+  margin: 0 0 @baseLineHeight;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+// Groups of fields with labels on top (legends)
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: @baseLineHeight;
+  font-size: @baseFontSize * 1.5;
+  line-height: @baseLineHeight * 2;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+
+  // Small
+  small {
+    font-size: @baseLineHeight * .75;
+  }
+}
+
+// Identify controls by their labels
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+// Form controls
+// -------------------------
+
+// Shared size and type resets
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  display: inline-block;
+  height: @baseLineHeight;
+  padding: 4px 6px;
+  margin-bottom: @baseLineHeight / 2;
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
+  .border-radius(5px);
+  vertical-align: middle;
+}
+// Reset appearance properties for textual inputs and textarea
+// Declare width for legacy (can't be on input[type=*] selectors or it's too specific)
+input,
+textarea,
+.uneditable-input {
+  width: 206px; // plus 12px padding and 2px border
+}
+// Reset height since textareas have rows
+textarea {
+  height: auto;
+}
+// Everything else
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  border: 1px solid  gray;
+  .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  .transition(~"border linear .2s, box-shadow linear .2s");
+
+  // Focus state
+  &:focus {
+    border-color: rgba(82,168,236,.8);
+    outline: 0;
+    outline: thin dotted \9; /* IE6-9 */
+    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)");
+  }
+}
+
+// Position radios and checkboxes better
+input[type="radio"],
+input[type="checkbox"] {
+  vertical-align: baseline;
+  padding-left: 20px;
+}
+
+// Reset width of input images, buttons, radios, checkboxes
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto; // Override of generic input selector
+}
+
+// Set the height of select and file controls to match text inputs
+select,
+input[type="file"] {
+  height: @gutter; /* In IE7, the height of the select element cannot be changed by height, only font-size */
+  *margin-top: 4px; /* For IE7, add top margin to align select with labels */
+  line-height: @gutter;
+}
+
+// Make select elements obey height by applying a border
+select {
+  width: 220px; // default input width + 10px of padding that doesn't get applied
+  border: 1px solid gray;
+}
+
+// Make multiple select elements height not fixed
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+
+a {
+  color: @linkColor;
+  text-decoration: none;  
+  &:hover{
+    color:@linkColorHover;
+  }
+}
+
+img{
+  margin-top: 2*@gutter;
+  margin-bottom:2*@gutter;
 }
 
 /* Smaller screens */
 
 @media only screen and (max-width: 1023px) {
-
 	body {
 		font-size: 0.8em;
 		line-height: 1.5em;
