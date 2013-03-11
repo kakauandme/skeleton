@@ -3,27 +3,60 @@
   In this file you should write your main styles. (or centralize your imports)
   Import this file using the following HTML or equivalent:
   <link href="/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  */
 
 @import compass/reset
+@import compass/typography/links/link-colors
+@import blueprint/colors
+@import compass/typography/lists/horizontal-list
+@import blueprint/typography
+@import blueprint/liquid
 
-@import "blueprint/liquid"
+
+
+
+
+$font-color: #666
+
+
+$gutter: 20px
 $blueprint-liquid-grid-columns: 24
 $blueprint-liquid-grid-width: 3.167%
 $blueprint-liquid-grid-margin: 1.042%
 $blueprint-liquid-container-width: 80%
-+blueprint-liquid-grid
 
-@import "blueprint/typography"
-$blueprint-font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+
+
 $blueprint-font-size: 12px
 
 
++blueprint-liquid-grid
+
+a
+	text-decoration: none 
+
 section, header, footer
 	+container
-@import "compass/typography/lists/horizontal-list"
-header nav ul
-	+horizontal-list
+	+normal-text
+
+
+header
+	.logo
+		background-image: url([url])
+		background-position: left center
+		background-repeat: no-repeat
+		width: 150px
+		float: left
+		padding-right: 3*$gutter
+	nav ul
+		+horizontal-list
 
 section
-	.textcontainer
-		+blueprint-typography
+	margin-top: 3*$gutter
+	margin-bottom: 3*$gutter
+	.row
+		float: left
+		width: 100%
+		margin-bottom: $gutter
+		.textcontainer
+			+blueprint-typography
